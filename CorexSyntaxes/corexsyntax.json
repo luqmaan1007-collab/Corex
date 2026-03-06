@@ -1,0 +1,8 @@
+{
+  "patterns": [
+    { "name": "keyword.control.additional.corex", "match": "\b(continueLoop|breakLoop|exitLoop|returnValue)\b" },
+    { "name": "support.function.additional.corex", "match": "\b(connectServer|disconnectServer|sendPacket|receivePacket)\b" },
+    { "name": "support.constant.additional.corex", "match": "\b(PI2|SQRT2|MAX_INT|MIN_INT)\b" },
+    { "name": "support.type.additional.corex", "match": "\b(Boolean|Integer|Float|Double|String|Array|Map)\b" }
+  ]
+}

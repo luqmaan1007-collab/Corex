@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Corex GUI Preview</title>
+    <style>
+        body { font-family: monospace; background: #111; color: #0f0; }
+        #console { white-space: pre; }
+    </style>
+</head>
+<body>
+<h2>Corex Web Preview</h2>
+<div id="console"></div>
+<script>
+let frames = ["continueLoop breakLoop exitLoop returnValue"];
+for(let i=1;i<=10;i++){
+    document.getElementById("console").innerText += "[Frame " + i + "] Syntaxes executed: " + frames[0] + "\n";
+}
+</script>
+</body>
+</html>
