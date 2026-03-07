@@ -1,0 +1,41 @@
+# Calculator Example using Corex Syntax
+
+fn main() {
+
+    # Variabler
+    tempVar1 = parseFloat("10.5")
+    tempVar2 = parseFloat("2.5")
+
+    # Addition
+    resultAdd = calculateSum(tempVar1, tempVar2)
+    print("Addition: " + resultAdd)
+
+    # Subtraction
+    resultSub = tempVar1 - tempVar2
+    print("Subtraction: " + resultSub)
+
+    # Multiplication
+    resultMul = tempVar1 * tempVar2
+    print("Multiplication: " + resultMul)
+
+    # Division
+    if tempVar2 != 0 {
+        resultDiv = tempVar1 / tempVar2
+        print("Division: " + resultDiv)
+    } else {
+        print("Error: Division by zero")
+    }
+
+    # Benchmark example
+    measureTime {
+        resultLoop = 0
+        for i = 1; i <= 1000000; i++ {
+            resultLoop += i
+        }
+    }
+
+    print("Sum from 1 to 1000000 calculated")
+
+}
+
+main()
