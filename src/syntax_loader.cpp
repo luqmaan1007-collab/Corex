@@ -1,28 +1,27 @@
 #include <fstream>
 #include <iostream>
-#include <unordered_set>
 #include <nlohmann/json.hpp>
+#include "function_registry.h"
 
 using json = nlohmann::json;
 
-std::unordered_set<std::string> keywords;
-std::unordered_set<std::string> functions;
+void loadCorexSyntax(){
 
-void loadSyntax() {
+std::ifstream file("CorexSyntaxes/corexsyntax.json");
 
-    std::ifstream file("CorexSyntaxes/corexsyntax.json");
+if(!file.is_open()){
+std::cout<<"Could not load syntax file\n";
+return;
+}
 
-    if(!file.is_open()){
-        std::cout<<"Failed to load syntax file\n";
-        return;
-    }
+json j;
+file >> j;
 
-    json j;
-    file >> j;
+for(auto& s : j["syntax"]){
 
-    for(auto& k : j["keywords"])
-        keywords.insert(k);
+std::string name = s;
+registerSyntaxFunction(name);
 
-    for(auto& f : j["functions"])
-        functions.insert(f);
+}
+
 }
