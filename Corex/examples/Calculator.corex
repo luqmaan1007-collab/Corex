@@ -1,7 +1,0 @@
-// Corex Calculator example
-fn main() -> Int {
-    let a: Int = 10
-    let b: Int = 5
-    print("Sum: " + (a + b))
-    return 0
-}

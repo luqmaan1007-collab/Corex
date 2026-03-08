@@ -1,5 +1,0 @@
-// Corex HelloWorld example
-fn main() -> Int {
-    print("Hello, Corex!")
-    return 0
-}
