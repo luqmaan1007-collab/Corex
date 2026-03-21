@@ -7,10 +7,10 @@ EXE = corex
 all: $(EXE)
 
 $(EXE): $(OBJ)
-<TAB>$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
-<TAB>$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-<TAB>rm -f $(OBJ) $(EXE)
+	rm -f $(OBJ) $(EXE)
