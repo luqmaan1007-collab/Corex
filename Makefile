@@ -1,16 +1,23 @@
 CXX = clang++
 CXXFLAGS = -std=c++17 -O2 -Iinclude
 SRC = $(wildcard src/*.cpp)
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:src/%.cpp=build/%.o)
 EXE = corex
+
+# Ensure build directory exists
+BUILD_DIR = build
+$(shell mkdir -p $(BUILD_DIR))
 
 all: $(EXE)
 
+# Link the executable
 $(EXE): $(OBJ)
-<TAB here>$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-%.o: %.cpp
-<TAB here>$(CXX) $(CXXFLAGS) -c $< -o $@
+# Compile source files to object files
+build/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Clean build artifacts
 clean:
-<TAB here>rm -f $(OBJ) $(EXE)
+	rm -rf build/*.o $(EXE)
