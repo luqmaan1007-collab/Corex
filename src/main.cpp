@@ -1,31 +1,47 @@
-#include "interpreter.cpp"  // interpreter finns i src
-#include "ast.h"            // AST-definitioner finns i src
+#include "interpreter.cpp"
+#include "ast.h"
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
 
-int main() {
-    // 1️⃣ Ladda alla Corex-syntaxer från JSON
-    loadCorexSyntaxes("../CorexSyntaxes/corexsyntax.json"); // OBS: sökvägen från src
+// Minimal AST parser stub
+std::vector<Node*> parseCode(const std::string& code) {
+    std::vector<Node*> nodes;
+    FunctionCall* fn = new FunctionCall();
+    fn->name = "test";  // Match a syntax in JSON
+    nodes.push_back(fn);
+    return nodes;
+}
 
-    // 2️⃣ Skapa exempel AST-noder
-    FunctionCall node1;
-    node1.name = "print";
+std::string readFile(const std::string& path) {
+    std::ifstream file(path);
+    if(!file.is_open()) {
+        std::cerr << "Failed to open file: " << path << std::endl;
+        return "";
+    }
+    return std::string((std::istreambuf_iterator<char>(file)),
+                        std::istreambuf_iterator<char>());
+}
 
-    FunctionCall node2;
-    node2.name = "spawnThread";
+int main(int argc, char* argv[]) {
+    if(argc < 3) {
+        std::cout << "Usage: corex <corex_file> <syntax_json>\n";
+        return 1;
+    }
 
-    FunctionCall node3;
-    node3.name = "unknownFunc"; // För test av okänd syntax
+    std::string corexFile = argv[1];
+    std::string syntaxFile = argv[2];
 
-    // 3️⃣ Kör interpreter
-    run(&node1);
-    run(&node2);
-    run(&node3);
+    loadCorexSyntaxes(syntaxFile);
 
-    // 4️⃣ Kör alla syntaxer från JSON automatiskt (valfritt)
-    std::cout << "\nExecuting all registered Corex syntaxes:\n";
-    for (auto& kv : corexFunctions) {
-        std::cout << "Running: " << kv.first << " -> ";
-        kv.second();
+    std::string code = readFile(corexFile);
+    if(code.empty()) return 1;
+
+    std::vector<Node*> nodes = parseCode(code);
+
+    for(auto node : nodes) {
+        run(node);
     }
 
     return 0;
