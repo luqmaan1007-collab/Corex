@@ -1,0 +1,6 @@
+ab5e06ffb95fec0759d7c5c84d3cb576  usr/bin/dconf
+0bb18d2298b84b614d970b5663616770  usr/share/bash-completion/completions/dconf
+2a7f2845fc9b58be271c869bff85d253  usr/share/doc/dconf-cli/changelog.Debian.gz
+0986de5d536023dd94efc4a313e2149e  usr/share/doc/dconf-cli/copyright
+379e712689fe108872021de6f6cf8d47  usr/share/man/man1/dconf.1.gz
+651f8a2440373c2874df3a447ab11578  usr/share/man/man7/dconf.7.gz

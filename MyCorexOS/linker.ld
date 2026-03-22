@@ -1,0 +1,11 @@
+OUTPUT_FORMAT("binary")
+ENTRY(kernel_main)
+
+SECTIONS
+{
+    . = 0x1000;  /* kernel load address */
+    .text : { *(.text) }
+    .rodata : { *(.rodata) }
+    .data : { *(.data) }
+    .bss : { *(.bss COMMON) }
+}

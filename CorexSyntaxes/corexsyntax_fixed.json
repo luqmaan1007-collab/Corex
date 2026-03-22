@@ -1,0 +1,36 @@
+{
+  "patterns": [
+    {
+      "name": "keyword.control.additional.corex",
+      "match": "\\b(continueLoop|breakLoop|exitLoop|returnValue|throwError|tryFinally|catchException|repeatUntil|foreachIn|selectCase|defaultCase|whenMatched|otherwiseMatched|waitEvent|signalEvent|emitEvent|broadcastEvent|onTrigger|offTrigger|subscribeEvent|unsubscribeEvent|triggerEvent|handleCallback|invokeListener|registerListener|deregisterListener|scheduleTask|enqueueTask|dequeueTask|spawnProcess|killProcess|startRoutine|stopRoutine|pauseRoutine|resumeRoutine|initialize|finalize|cleanup|resetState|updateState|loadModule|unloadModule|importModule|exportModule)\\b"
+    },
+    {
+      "name": "support.function.additional.corex",
+      "match": "\\b(connectServer|disconnectServer|openSocket|closeSocket|sendPacket|receivePacket|encodeData|decodeData|encrypt|decrypt|hash|sign|verify|serialize|deserialize|compress|decompress|readFile|writeFile|appendFile|deleteFile|copyFile|moveFile|renameFile|listDirectory|createDirectory|deleteDirectory|checkPermission|setPermission|getEnvironment|setEnvironment|logDebug|logInfo|logWarn|logError|logTrace|spawnThread|killThread|startCoroutine|stopCoroutine|awaitSignal|emitSignal|subscribeSignal|unsubscribeSignal|notifyObserver|unregisterObserver|pushStack|popStack|peekStack|enqueueQueue|dequeueQueue|peekQueue|mapArray|filterArray|reduceArray|sortArray|findIndex|replaceAll|splitString|joinString|trimString|toUpperCase|toLowerCase|parseInt|parseFloat|randomInt|randomFloat|sleep|wait|delay|measureTime|benchmark)\\b"
+    },
+    {
+      "name": "support.constant.additional.corex",
+      "match": "\\b(PI2|SQRT2|LN2|LN10|EULER|MAX_INT|MIN_INT|MAX_FLOAT|MIN_FLOAT|BUFFER_SIZE|PAGE_SIZE|TIMEOUT|RETRY_LIMIT|TRUE|FALSE|NULL|UNDEFINED|EMPTY|DEFAULT|TEMP_DIR|USER_HOME|SYSTEM_PATH|STD_IN|STD_OUT|STD_ERR|VERSION_MAJOR|VERSION_MINOR|VERSION_PATCH|DEBUG_MODE|PROD_MODE|DEV_MODE|ENVIRONMENT|CONFIG_PATH)\\b"
+    },
+    {
+      "name": "support.type.additional.corex",
+      "match": "\\b(Boolean|Integer|Float|Double|Character|String|Array|Map|Dictionary|Set|List|Tuple|Void|Any|Number|Date|Time|Buffer|Regex|Lambda|Function|Coroutine|Thread|Process|Event|Signal|Task|Module|Package|Struct|Enum|Interface|Object|Class)\\b"
+    },
+    {
+      "name": "variable.extended.corex",
+      "match": "\\b(tempVar[0-9]+|localVar[0-9]+|globalVar[0-9]+|sharedVar[0-9]+|flagVar[0-9]+|stateVar[0-9]+|paramVar[0-9]+|inputVar[0-9]+|outputVar[0-9]+|argVar[0-9]+)\\b"
+    },
+    {
+      "name": "entity.name.decorator.additional.corex",
+      "match": "@(threadSafe|synchronized|deprecated|experimental|internal|public|private|protected|final|override|inline|static|async|await|observer|listener|eventHandler|callback)\\b"
+    },
+    {
+      "name": "constant.language.extended.corex",
+      "match": "\\b(TRUE|FALSE|NULL|UNDEFINED|NaN|Infinity|COREX|SYSTEM|DEFAULT|EMPTY|STDIN|STDOUT|STDERR)\\b"
+    },
+    {
+      "name": "entity.name.function.extended.corex",
+      "match": "\\b(handleEvent|processInput|generateOutput|calculateSum|calculateMean|calculateMedian|calculateMode|sortList|filterList|mapList|reduceList|connectDB|disconnectDB|executeQuery|commitTransaction|rollbackTransaction|startService|stopService|restartService|sendMessage|receiveMessage|pushNotification|popNotification|spawnWorker|killWorker|startJob|stopJob|scheduleJob|cancelJob|initConfig|loadConfig|saveConfig|resetConfig|updateConfig|clearCache|refreshCache|notifyUser|alertAdmin|debugLog|traceExecution|benchmarkPerformance)\\b|kernel_main|task1_fn|task2_fn|generateOutput|spawnWorker|awaitSignal|loop"
+    }
+  ]
+}

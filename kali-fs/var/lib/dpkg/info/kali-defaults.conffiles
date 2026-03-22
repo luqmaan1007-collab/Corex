@@ -1,0 +1,6 @@
+/etc/dconf/db/local.d/kali-tweaks
+/etc/dconf/profile/user
+/etc/firefox-esr/kali.js
+/etc/profile.d/kali.sh
+/etc/xdg/autostart/kali-noautomount.desktop
+/etc/xdg/xfce4/terminal/terminalrc

@@ -1,0 +1,23 @@
+fn kernel_main() {
+    # Print birthday message using generateOutput (matches JSON)
+    generateOutput("🎉 Happy Birthday Corex! 🎉", 0xB8000)
+
+    # Spawn two demo tasks using spawnWorker (matches JSON)
+    let task1 = spawnWorker(task1_fn)
+    let task2 = spawnWorker(task2_fn)
+
+    # Wait for tasks to finish using awaitSignal
+    awaitSignal(task1)
+    awaitSignal(task2)
+
+    # Keep kernel running
+    loop {}
+}
+
+fn task1_fn() {
+    generateOutput("Task 1: Loading party decorations...", 0xB8100)
+}
+
+fn task2_fn() {
+    generateOutput("Task 2: Initializing cake timer...", 0xB8200)
+}

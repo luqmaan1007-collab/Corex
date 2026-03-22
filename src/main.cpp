@@ -1,47 +1,24 @@
 #include "interpreter.cpp"
-#include "ast.h"
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <vector>
-
-// Minimal AST parser stub
-std::vector<Node*> parseCode(const std::string& code) {
-    std::vector<Node*> nodes;
-    FunctionCall* fn = new FunctionCall();
-    fn->name = "test";  // Match a syntax in JSON
-    nodes.push_back(fn);
-    return nodes;
-}
-
-std::string readFile(const std::string& path) {
-    std::ifstream file(path);
-    if(!file.is_open()) {
-        std::cerr << "Failed to open file: " << path << std::endl;
-        return "";
-    }
-    return std::string((std::istreambuf_iterator<char>(file)),
-                        std::istreambuf_iterator<char>());
-}
 
 int main(int argc, char* argv[]) {
-    if(argc < 3) {
-        std::cout << "Usage: corex <corex_file> <syntax_json>\n";
+    if(argc < 2) {
+        std::cout << "Usage: corex <file.corex>\n";
         return 1;
     }
 
-    std::string corexFile = argv[1];
-    std::string syntaxFile = argv[2];
+    std::string filename = argv[1];
 
-    loadCorexSyntaxes(syntaxFile);
+    // FIX: replace "test" with a valid syntax
+    std::string fn_name = "kernel_main"; // must match your JSON
 
-    std::string code = readFile(corexFile);
-    if(code.empty()) return 1;
+    std::cout << "Running Corex function: " << fn_name << "\n";
 
-    std::vector<Node*> nodes = parseCode(code);
-
-    for(auto node : nodes) {
-        run(node);
+    // Call your Corex interpreter
+    if(!runCorexFile(filename)) {
+        std::cerr << "Error running " << filename << "\n";
+        return 1;
     }
 
     return 0;
